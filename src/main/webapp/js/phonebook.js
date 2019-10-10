@@ -68,6 +68,14 @@ new Vue({
             self.phone = "";
             self.validation = false;
         },
+        deleteContact: function () {
+            var contact = new Contact(this.firstName, this.lastName, this.phone);
+            $.ajax({
+                type: "POST",
+                url: "/phonebook/delete",
+                data: JSON.stringify(contact)
+            });
+        },
         loadData: function () {
             var self = this;
 
